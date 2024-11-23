@@ -200,4 +200,6 @@ app.put("/todos/:id", async (req, res) => {
 app.listen(8080, () => {
     console.log("I am listening on port 8080");
 });
-
+app.get("/",async(req,res)=>{
+    res.redirect("/todos");
+})
