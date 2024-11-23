@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.engine("ejs",ejsMate);
 app.use(methodOverride("_method"));
 app.set('view engine', 'ejs');
-app.set('views', './views');
+app.set('views', path.join(__dirname, 'views'));
 const sessionOptions={
     secret:process.env.SESSION,
     resave:false,
@@ -103,7 +103,7 @@ app.get("/todos", async (req, res) => {
         // res.render("/signup");
     // }else{
         const alltasks = await Todo.find({});
-        res.render("index", { alltasks,user_name,toggle,button_val });
+        res.render("index.ejs", { alltasks,user_name,toggle,button_val });
     // }
     
 });
@@ -122,7 +122,7 @@ app.delete("/todos/:id",async(req,res)=>{
 
 //users
 app.get("/signup",async(req,res)=>{
-    res.render("../views/users/signUp.ejs");
+    res.render("users/signUp.ejs");
 })
 app.post("/signup",async(req,res)=>{
     // const username=req.body.username;
@@ -157,7 +157,7 @@ app.post("/logout",async(req,res)=>{
     
 })
 app.get("/login",async(req,res)=>{
-    res.render("../views/users/login.ejs");
+    res.render("users/login.ejs");
 })
 app.post("/login",passport.authenticate("local",{failureRedirect:"/login"}),async(req,res)=>{
     user_name=req.body.username;
