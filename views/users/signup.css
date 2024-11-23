@@ -1,0 +1,14 @@
+#exampleInputPassword1{
+    width: 50px;
+    background-color: black;
+}
+.sing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+*{
+    background-color: black;
+    
+}
