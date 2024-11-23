@@ -7,6 +7,7 @@ const methodOverride=require("method-override");
 const ejsMate= require("ejs-mate");
 const passportLocalMongoose=require("passport-local-mongoose");
 const passport=require("passport");
+const path = require("path");
 const localStrategy=require("passport-local");
 const session=require("express-session");
 app.use(express.json());
